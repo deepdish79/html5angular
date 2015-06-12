@@ -1,0 +1,31 @@
+<div class="container" ng-controller="IndexController">
+  <div class="row">
+    <div class="span8 offset2">
+      <div class="hero-unit"><h1>Modal Demo</h1></div>
+      <button class="btn btn-success" ng-click="editUser('new')" data-toggle="modal" href="#editModal">
+        <i class="icon-user icon-white"></i>&nbsp;Create New User
+      </button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in userList">
+            <td>{{ user._id }}</td>
+            <td>{{ user.username }}</td>
+            <td>
+              <button class="btn btn-primary" ng-click="$parent.editUser(user._id)" data-toggle="modal" href="#editModal">
+                <i class="icon-pencil icon-white"></i>&nbsp;Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="modal hide fade" ng-include="'modal-partial.html'" id="editModal"></div>
+    </div>
+  </div>
+</div>
